@@ -13,7 +13,7 @@ public class ConnectionManager {
 			Class.forName("com.mysql.jdbc.Driver");
 			try 
 			{ 
-				con = DriverManager.getConnection( "jdbc:mysql://localhost:3306/dracrys?useSSL=false","root","pass1234");  
+				con = DriverManager.getConnection( "jdbc:mysql://localhost:3306/dracrys","root","");  
 			} 
 			catch (SQLException ex) 
 			{ 

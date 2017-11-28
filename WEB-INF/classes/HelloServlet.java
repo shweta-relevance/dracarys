@@ -28,13 +28,18 @@ public class HelloServlet extends HttpServlet {
          out.println("<p>Remote Address: " + request.getRemoteAddr() + "</p>");
          // Generate a random number upon each request
          out.println("<p>A Random Number: <strong>" + Math.random() + "</strong></p>");
-		 
+         try {
+        	 Class.forName("com.mysql.jdbc.Driver");
+         }
+         catch (ClassNotFoundException e) {
+        	 e.printStackTrace();
+         }
 		 conn = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/evente?useSSL=false", "root", "pass1234");
+            "jdbc:mysql://localhost:3306/dracrys?useSSL=false", "root", "");
 			
 		stmt = conn.createStatement();
 		
-		 String sqlStr = "select id, name from district ";
+		 String sqlStr = "select username, password from user ";
 		 
 		 out.println("<p>You query is: " + sqlStr + "</p>");
 		 
@@ -43,8 +48,8 @@ public class HelloServlet extends HttpServlet {
 		 int count = 0;
          while(rset.next()) {
             // Print a paragraph <p>...</p> for each record
-            out.println("<p>" + rset.getString("id")
-                 + ", " + rset.getString("name") + "</p>");
+            out.println("<p>" + rset.getString("username")
+                 + ", " + rset.getString("password") + "</p>");
             count++;
          }
          out.println("<p>==== " + count + " records found =====</p>");
