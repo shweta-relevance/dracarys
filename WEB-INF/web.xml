@@ -10,6 +10,10 @@
       <servlet-name>DracarysLogin</servlet-name>
       <servlet-class>LoginServlet</servlet-class>
    </servlet>
+   <servlet>
+      <servlet-name>HelloWorld</servlet-name>
+      <servlet-class>HelloServlet</servlet-class>
+   </servlet>
  
    <!-- Note: All <servlet> elements MUST be grouped together and
          placed IN FRONT of the <servlet-mapping> elements -->
@@ -17,6 +21,10 @@
    <servlet-mapping>
       <servlet-name>DracarysLogin</servlet-name>
       <url-pattern>/LoginServlet</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>HelloWorld</servlet-name>
+      <url-pattern>/sayhello</url-pattern>
    </servlet-mapping>
    
    <filter>
